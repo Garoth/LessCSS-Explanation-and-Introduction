@@ -5,4 +5,20 @@ Additionally, the presentation acts as a short introduction to Less' features,
 and how they could be used idiomatically.
 
 To view the presentation, check out the code and navigate your browser to the
-local index.html file.
+local index.html file. Alternatively, you can see it live here:
+
+http://garoth.github.com/LessCSS-Explanation-and-Introduction
+
+It currently runs smoothest and with the fewest bugs using Safari on my test
+system.
+
+Thanks to:
+
+Impress.js                For the presentation framework
+google-code-prettify      For the code colorizer
+Less                      For CSS compilation
+Evernote                  For being ok with me making this during work hours
+
+Also, if you're interested in Less, you may also like Sass. It has some
+tradeoffs when compared to Less, but both are good projects -- with a great
+deal of similarities.
