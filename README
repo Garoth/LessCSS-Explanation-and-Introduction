@@ -1,0 +1,8 @@
+A presentation in impress.js that explains the shortcomings of CSS, and where
+LessCSS steps in to fill the gaps.
+
+Additionally, the presentation acts as a short introduction to Less' features,
+and how they could be used idiomatically.
+
+To view the presentation, check out the code and navigate your browser to the
+local index.html file.
