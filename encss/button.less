@@ -1,0 +1,73 @@
+/* Generic button */
+.button(@background: @pale-gray,
+        @color: @charcoal,
+        @border-color: #B2B2B2,
+        @gradient-top: @pale-gray,
+        @gradient-bottom: #E6E6E6,
+        @hover-color: #2B2B2b,
+        @hover-border-color: #A4A4A4,
+        @hover-gradient-top: #EFEFEF,
+        @hover-gradient-bottom: #DDDDDD) {
+
+  @border-radius: 2px;
+
+  .inline-block();
+  min-width: 100px;
+  margin: 0px;
+  padding: 8px 12px;
+  border: 1px solid @border-color;
+  height: auto;
+  background: @pale-gray;
+  float: none;
+
+  #gradient > .vertical(@gradient-top, @gradient-bottom);
+  .standard-text();
+  color: @color;
+  text-align: center;
+  .border-radius(@border-radius);
+  .box-shadow(0px 0px 0px @black);
+  .transition(all 0.2s ease 0);
+  .unselectable();
+
+  &:hover {
+    border: 1px solid @hover-border-color;
+    color: @hover-color;
+    #gradient > .vertical(@hover-gradient-top, @hover-gradient-bottom);
+  }
+
+  @media @phone-portrait {
+    width: 99%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+/* Green "emphasized" button shorthand */
+.emphasized-button() {
+  .button(#6FB536, @white, #5C982C, #6FB536, #5fa229, @white, #4C881D,
+          #60a526, #478316)
+}
+
+/* All of the basic button styles */
+.button-classes() {
+  input[type="submit"], input[type="button"], .general-button, a.general-button {
+    .button();
+
+    &.deemphasize {
+      height: 24px;
+      padding: 0 8px;
+      .border-radius(3px);
+    }
+
+    &.emphasize {
+      .emphasized-button();
+    }
+
+    &.super-emphasize {
+      padding: 15px 8px 30px 8px;
+      font-size: 14px;
+      font-weight: bold;
+      text-shadow: 0px 1px 2px @en-dark-green;
+    }
+  }
+}

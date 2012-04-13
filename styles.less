@@ -1,0 +1,133 @@
+@import "encss/base-import";
+@import "encss/button";
+@import "encss/misc-classes";
+
+body {
+  background-color: @cool-gray;
+  font-family: @standard-fonts;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.clear {
+  clear: both;
+}
+
+.step {
+  position: relative;
+  width: 350px;
+  height: 560px;
+  background-color: @white;
+  border: 1px solid @boring-gray;
+  padding: 32px;
+
+  h1 {
+    font-family: @standard-fonts;
+    font-size: 28px;
+    line-height: 32px;
+    width: 100%;
+    padding-bottom: 14px;
+    border-bottom: 1px solid @boring-gray;
+    margin-bottom: 32px;
+  }
+
+  ul {
+    list-style-type: lower-greek;
+
+    li {
+      margin-top: 8px;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    line-height: 28px;
+    margin: 16px 0px;
+  }
+
+  p {
+    font-family: @standard-fonts;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  p + p {
+    margin-top: 1em;
+  }
+
+  img {
+    margin: 0px 0px 16px 16px;
+    float: right;
+  }
+
+  img.grid {
+    width: 350px - 64px;
+    height: auto;
+    float: none;
+  }
+
+  img.lesslogo {
+    margin: 74px;
+    float: none;
+  }
+
+  pre {
+    border: 0px;
+    border-left: 3px solid @en-dark-green;
+    padding-left: 16px;
+    margin: 16px;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0px;
+    width: 350px;
+    padding: 32px 0px;
+    text-align: center;
+  }
+
+  .button-classes();
+  .static-link-classes(14px, @linky-blue);
+}
+
+.logo-bar {
+  position: fixed;
+  bottom: 0px;
+  background-color: whiteSmoke;
+  border-bottom: 8px solid @en-dark-green;
+  border-top: 1px solid #B3B3B3;
+  height: 50px;
+  width: 100%;
+  z-index: 100;
+
+  img {
+    margin: 10px 0px 0px 10px;
+  }
+}
+
+/* Examples beyond here */
+@standard-width: 150px;
+
+.bordered(@width: @standard-width) {
+  border: 2px solid @en-dark-green;
+  padding: 8px;
+  margin-bottom: 4px;
+  width: @width;
+}
+
+.ex-standout {
+  .bordered();
+  font-size: 11px;
+}
+
+.ex-standout-wider {
+  .bordered(300px);
+  font-size: 11px;
+}
+
+.ex-new {
+  background-color: @cool-gray;
+  .ex-standout {
+    width: @standard-width / 3;
+  }
+}

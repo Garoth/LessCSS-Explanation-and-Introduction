@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Less CSS Explanation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="reset.css" rel="stylesheet" />
+    <link href="google-code-prettify/prettify.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="google-code-prettify/prettify.js">
+    </script>
+  </head>
+  <body onload="prettyPrint()">
+    <div id="impress">
+      <div class="step" data-x="0" data-y="0">
+        <h1>Less CSS</h1>
+        <img class="lesslogo" src="lesslogo.png" />
+        <div class="footer">
+          A short explanation by Andrei Thorp: athorp at evernote.
+          <a href="http://evernote.com">Evernote</a> +
+          <a href="http://lesscss.org">lesscss.org.</a>
+        </div>
+      </div>
+
+      <div class="step" data-x="2000" data-y="0">
+        <h1>Why Bother?</h1>
+
+        <h2> Short answer: CSS sucks </h2>
+
+        <p>
+        CSS is widely considered the weakest point in the web
+        technology stack. It's a copy-paste language with very little
+        room for maintainability or reusability.
+        </p>
+
+        <h2> But can't you just neatly override things? </h2>
+
+        <p>
+        No, because often times, you end up needing to override the majority
+        of the class. Lets look at Evernote's standardized buttons. They look
+        like this:
+        </p>
+
+        <br />
+        <br />
+
+        <div class="general-button">I'm a button.</div>
+        <div class="clear"></div>
+
+        <br />
+        <br />
+
+        <p>
+        These buttons have a ton of attributes set, including many CSS3
+        properties that require vendor prefixes, since they're not fully
+        standardized. Lets take a look.
+        </p>
+      </div>
+
+      <div class="step" data-x="4000" data-y="0" data-rotate-y="0">
+        <h1>Evernote Button CSS 1/4</h1>
+<pre class="prettyprint">
+.general-button {
+  display: inline-block;
+  zoom: 1;
+  min-width: 100px;
+  margin: 0px;
+  padding: 8px 12px;
+  border: 1px solid #B2B2B2;
+  height: auto;
+  background: whiteSmoke;
+  float: none;
+  background-color: #EFEFEF;
+  background-image: -moz-linear-gradient(top, whiteSmoke, #E6E6E6);
+</pre>
+      </div>
+
+      <div class="step" data-x="4350" data-y="0" data-z="-350" data-rotate-y="90">
+        <h1>Evernote Button CSS 2/4</h1>
+<pre class="prettyprint">
+  background-image: -ms-linear-gradient(top, whiteSmoke, #E6E6E6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(whiteSmoke), to(#E6E6E6));
+  background-image: -webkit-linear-gradient(top, whiteSmoke, #E6E6E6);
+  background-image: -o-linear-gradient(top, whiteSmoke, #E6E6E6);
+  background-image: linear-gradient(top, whiteSmoke, #E6E6E6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#e6e6e6', GradientType=0);
+  color: #747474;
+  line-height: 18px;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 13px;
+</pre>
+      </div>
+
+      <div class="step" data-x="4000" data-y="0" data-z="-700" data-rotate-y="180">
+        <h1>Evernote Button CSS 3/4</h1>
+<pre class="prettyprint">
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  text-justify: auto;
+  text-outline: none;
+  text-overflow: clip;
+  text-shadow: none;
+  text-transform: none;
+  text-wrap: normal;
+  color: #3B3B3B;
+  text-align: center;
+  -webkit-border-radius: 2px;
+</pre>
+      </div>
+
+      <div class="step" data-x="3650" data-y="0" data-z="-350" data-rotate-y="270">
+        <h1>Evernote Button CSS 4/4</h1>
+<pre class="prettyprint">
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 0px #000000;
+  -moz-box-shadow: 0px 0px 0px #000000;
+  box-shadow: 0px 0px 0px #000000;
+  -webkit-transition: all 0.2s ease 0;
+  -moz-transition: all 0.2s ease 0;
+  -ms-transition: all 0.2s ease 0;
+  -o-transition: all 0.2s ease 0;
+  transition: all 0.2s ease 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+</pre>
+
+      <br />
+      <p>
+      And then there's also hover states, potential active states, etc.
+      </p>
+      </div>
+
+      <div class="step" data-x="6000" data-y="0" data-z="0">
+        <h1>Now, The Green Button</h1>
+
+        <p>
+        What would have to change in order to have a green button instead of
+        the gray one? This would seem like a nice use case for overrides, but
+        it turns out to be impractical.
+        </p>
+
+        <br />
+        <br />
+
+        <div class="general-button emphasize">I'm a button.</div>
+        <div class="clear"></div>
+
+        <br />
+
+        <h2>Overrides to save the day?</h2>
+
+        <p>
+        Lets go back to the previous slides and take a look at what font,
+        color, and vendor prefixed settings we'd have to change by hand in
+        our override. <a href="#/step-3">Boop beep</a>
+        </p>
+      </div>
+
+      <div class="step" data-x="6000" data-y="2000" data-z="0">
+        <h1>Other Problems: No Variables</h1>
+
+        <img src="encolors.jpg" />
+
+        <p>
+        We have this nice set of standardized colors, both company-wide, and
+        specific to the web project. But if you want to use the colors in CSS,
+        you have to have a plain text file open with the list of hex codes
+        and try to remember which one is which. Then you have to copy-paste
+        them throughout your code.
+        </p>
+
+        <p>
+        And if the design team decides that #ACE2E8 should really be
+        #ACE3C7, you have to go through every file in the codebase and run
+        a substitution.
+        </p>
+      </div>
+
+      <div class="step" data-x="4000" data-y="2000" data-z="0">
+        <h1>Other Problems: Responsive Design</h1>
+
+        <p>
+        All of our redesigned webpages are actually a single page, even if
+        you visit the site from a mobile browser. This is due to a modern
+        CSS tool -- Media Queries.
+        </p>
+
+        <h2>Media Queries</h2>
+
+        <p>
+        Let you define custom styles based on page width.
+        </p>
+
+        <p>
+        Aside from the obvious problem that Media Queries suffer from the
+        same lack of variables as everything else, they also are annoying
+        to work with, since they in effect duplicate large parts of your
+        code throughout the page. Ex.
+        </p>
+
+<pre class="prettyprint">
+.foo {
+  width: 10px;
+}
+
+/* later down the page */
+@media only screen and (min-width: 479px) and (max-width: 650px) {
+  .foo {
+    width: 30px;
+  }
+}
+</pre>
+      </div>
+
+      <div class="step" data-x="4000" data-y="4000" data-scale="2" data-z="0">
+        <h1>Less CSS in a Nutshell: Overview</h1>
+
+        <p>
+        Less is a compiler written in JavaScript that produces excellent CSS.
+        Don't worry, it can run server side pretty easily through Rhino on
+        top of Java. It also has a simple command line tool.
+        </p>
+
+        <p>
+        Less is backwards compatible with CSS, so it's easy to learn. It just
+        adds a few useful things, without imposing a standard library:
+        </p>
+
+        <ul>
+          <li>Variables</li>
+          <li>Mixins, with parameters (i.e. reusable chunks of CSS)</li>
+          <li>Nesting of style rules (explained more soon)</li>
+          <li>Mathematical operators</li>
+          <li>Easy server-side importing of other Less files</li>
+          <li>Namespaces and scope</li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="7000" data-y="4000" data-scale="1" data-z="0">
+        <h1>Less CSS in a Nutshell: Variables, Mixins</h1>
+
+<pre class="prettyprint">
+@standard-width: 150px;
+@en-dark-green: #2E7044;
+
+.bordered(@width: @standard-width) {
+  border: 2px solid @en-dark-green;
+  padding: 8px;
+  margin-bottom: 4px;
+  width: @width;
+}
+
+.ex-standout {
+  .bordered();
+  font-size: 11px;
+}
+
+.ex-standout-wider {
+  .bordered(300px);
+  font-size: 11px;
+}
+</pre>
+
+        <div class="ex-standout">
+          I'm some text. Giraffe.
+        </div>
+        <div class="ex-standout-wider">
+          I'm some text. Otter.
+        </div>
+      </div>
+
+      <div class="step" data-x="6000" data-y="6000" data-scale="1" data-z="0">
+        <h1>Less CSS in a Nutshell: Nesting, Math</h1>
+
+<pre class="prettyprint">
+@standard-width: 150px;
+@en-dark-green: #2E7044;
+
+.bordered(@width: @standard-width) {
+  border: 2px solid @en-dark-green;
+  padding: 8px;
+  margin-bottom: 4px;
+  width: @width;
+}
+
+.ex-new {
+  background-color: @cool-gray;
+  .ex-standout {
+    width: @standard-width / 3;
+  }
+}
+</pre>
+
+        <div class="ex-standout">
+          I'm some text. Giraffe.
+        </div>
+        <div class="ex-new">
+          <div class="ex-standout">
+            Some new text. Crow.
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-x="8000" data-y="6000" data-rotate-z="90">
+        <h1>So, What Do We Do With All This?</h1>
+        <ul>
+          <li>Get CSS compression for free.</li>
+          <li>Break the CSS source into logical files.</li>
+          <li>Make writing CSS3 vendor-prefixed things easy.</li>
+          <li>Standardize colors, widths, and media queries using variables</li>
+          <li>Provide standardized widgets, that are easily repurposable</li>
+          <li>Standardize browser workarounds</li>
+          <li>Make layouts firmer by providing a grid layout</li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="8000" data-y="8000" data-rotate-z="90">
+        <h1>Breaking Files Up</h1>
+<pre class="prettyprint">
+encss
+├── base-import.less
+├── button.less
+├── dialog.less
+├── extra
+│   └── settings
+│       ├── panel.less
+│       ├── settings-import.less
+│       ├── settings-widget.less
+│       └── tab.less
+├── footer.less
+├── gmail-connect.less
+├── grid.less
+├── helpicon.less
+├── input.less
+├── misc-classes.less
+├── utility.less
+├── variable.less
+└── wrapper.less
+header.less
+layout.less
+</pre>
+      </div>
+
+      <div class="step" data-x="8000" data-y="10000" data-rotate-z="90">
+        <h1>Making CSS3 Features Easy and Standardizing Hacks</h1>
+        <h2>Complex gradient CSS made easy</h2>
+<pre class="prettyprint">
+#gradient > .radial(@cool-gray, @boring-gray);
+</pre>
+        <h2>IE7 compatible inline-block</h2>
+<pre class="prettyprint">
+.inline-block();
+</pre>
+        <h2>Sample of what these fuctions do</h2>
+<pre class="prettyprint">
+.unselectable() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+</pre>
+      </div>
+
+      <div class="step" data-x="8000" data-y="12000" data-rotate-z="90">
+        <h1>Grid Layout</h1>
+
+        <a href="full-grid.jpg">
+          <img class="grid" src="full-grid.jpg" />
+        </a>
+
+        <p>Throughout the source, there'll be lines like these, that ensure
+        that the page is laid out correctly</p>
+
+<pre class="prettyprint">
+width: @column-width * 5;
+</pre>
+
+        <p>For example, we can examine
+        <a href="http://stage.evernote.com/ReferAFriend.action">
+          the friend referral page
+        </a>
+      </div>
+
+      <div class="step" data-x="8000" data-y="14000" data-rotate-z="90">
+        <h1>Making Media Queries Palatable</h1>
+<pre class="prettyprint">
+.wrapper#container {
+  background-color: @white;
+  border: 1px solid @boring-gray;
+  margin: @column-width auto 0;
+  padding: @column-width;
+  width: @column-width * 23;
+  position: relative;
+
+  @media @phone-portrait {
+    width: @column-width * 9;
+    padding: @column-width / 2;
+  }
+  @media @phone-landscape {
+    width: @column-width * 11;
+  }
+  @media @tablet-portrait {
+    width: @column-width * 20;
+  }
+}
+</pre>
+      </div>
+
+
+    </div>
+
+    <div class="logo-bar">
+      <img src="enlogo.png" />
+    </div>
+
+    <script type="text/javascript" src="impress.js"></script>
+  </body>
+</html>

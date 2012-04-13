@@ -1,0 +1,384 @@
+/* Copyright 2012, Evernote Corp
+ *
+ * author: Andrei Thorp, athorp@evernote.com
+ */
+/*** Evernote CSS Framework ***/
+/*****************************************************************************/
+/* Simple Variables                                                          */
+/*****************************************************************************/
+/* Grays */
+/* Misc Extra Colors */
+/* Evernote Colors */
+/* Fonts */
+/* Colmuns */
+/* Responsive Design Shortcut Variables */
+/* Sample media queries using the above variables */
+/*
+ * @media @phone-portrait {
+ * }
+ * @media @phone-landscape {
+ * }
+ * @media @tablet-portrait {
+ * }
+ * @media @desktop {
+ * }
+ */
+/*****************************************************************************/
+/* BOOTSTRAP DERIVED Utility Mixins                                          */
+/*                                                                           */
+/* Copyright 2012 Twitter, Inc.                                              */
+/*                                                                           */
+/* Licensed under the Apache License, Version 2.0 (the "License");           */
+/* you may not use this work except in compliance with the License.          */
+/* You may obtain a copy of the License in the LICENSE file, or at:          */
+/*                                                                           */
+/*    http://www.apache.org/licenses/LICENSE-2.0                             */
+/*                                                                           */
+/* Unless required by applicable law or agreed to in writing, software       */
+/* distributed under the License is distributed on an "AS IS" BASIS,         */
+/* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  */
+/* See the License for the specific language governing permissions and       */
+/* limitations under the License.                                            */
+/*                                                                           */
+/* Modifications by Evernote.                                                */
+/*****************************************************************************/
+/*****************************************************************************/
+/* EVERNOTE Utility Mixins                                                   */
+/*****************************************************************************/
+/* A reset for our standard text/font */
+/* Select a custom font before our standard ones */
+/* IE7 compatible inline-block implementation. May need to be the last thing
+ * in the class definition.
+ *
+ * If this seems nuts, go read: http://www.evernote.com/shard/s20/sh/
+ * 823f17ee-ca19-4415-b71b-51e2e34c1809/6fd042bb8486e7671ad2c0b2d9f01bd2
+ * (Don't worry, it'll still seem nuts after) */
+/* IE7 inline-block (standalone) */
+/* Make something unselectable (i.e. text on clickable stuff)
+ *
+ * Note: this standard is still evolving, and we may need to change these.
+ */
+/* CSS3 Border shortcuts */
+/* Generic button */
+/* Green "emphasized" button shorthand */
+/* All of the basic button styles */
+/* Shorthand for making all <a> styles the same for children */
+body {
+  background-color: #ebebeb;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+.clear {
+  clear: both;
+}
+.step {
+  position: relative;
+  width: 350px;
+  height: 560px;
+  background-color: #ffffff;
+  border: 1px solid #bdbdbd;
+  padding: 32px;
+}
+.step h1 {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  width: 100%;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #bdbdbd;
+  margin-bottom: 32px;
+}
+.step ul {
+  list-style-type: lower-greek;
+}
+.step ul li {
+  margin-top: 8px;
+}
+.step h2 {
+  font-size: 20px;
+  line-height: 28px;
+  margin: 16px 0px;
+}
+.step p {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+.step p + p {
+  margin-top: 1em;
+}
+.step img {
+  margin: 0px 0px 16px 16px;
+  float: right;
+}
+.step img.grid {
+  width: 286px;
+  height: auto;
+  float: none;
+}
+.step img.lesslogo {
+  margin: 74px;
+  float: none;
+}
+.step pre {
+  border: 0px;
+  border-left: 3px solid #2e7044;
+  padding-left: 16px;
+  margin: 16px;
+}
+.step .footer {
+  position: absolute;
+  bottom: 0px;
+  width: 350px;
+  padding: 32px 0px;
+  text-align: center;
+}
+.step input[type="submit"],
+.step input[type="button"],
+.step .general-button,
+.step a.general-button {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  min-width: 100px;
+  margin: 0px;
+  padding: 8px 12px;
+  border: 1px solid #b2b2b2;
+  height: auto;
+  background: #f5f5f5;
+  float: none;
+  background-color: #efefef;
+  background-image: -moz-linear-gradient(top, #f5f5f5, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #f5f5f5, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #e6e6e6);
+  background-image: -o-linear-gradient(top, #f5f5f5, #e6e6e6);
+  background-image: linear-gradient(top, #f5f5f5, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#e6e6e6', GradientType=0);
+  color: #747474;
+  line-height: 18px;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  text-justify: auto;
+  text-outline: none;
+  text-overflow: clip;
+  text-shadow: none;
+  text-transform: none;
+  text-wrap: normal;
+  color: #3b3b3b;
+  text-align: center;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 0px #000000;
+  -moz-box-shadow: 0px 0px 0px #000000;
+  box-shadow: 0px 0px 0px #000000;
+  -webkit-transition: all 0.2s ease 0;
+  -moz-transition: all 0.2s ease 0;
+  -ms-transition: all 0.2s ease 0;
+  -o-transition: all 0.2s ease 0;
+  transition: all 0.2s ease 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.step input[type="submit"]:hover,
+.step input[type="button"]:hover,
+.step .general-button:hover,
+.step a.general-button:hover {
+  border: 1px solid #a4a4a4;
+  color: #2b2b2b;
+  background-color: #e8e8e8;
+  background-image: -moz-linear-gradient(top, #efefef, #dddddd);
+  background-image: -ms-linear-gradient(top, #efefef, #dddddd);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#efefef), to(#dddddd));
+  background-image: -webkit-linear-gradient(top, #efefef, #dddddd);
+  background-image: -o-linear-gradient(top, #efefef, #dddddd);
+  background-image: linear-gradient(top, #efefef, #dddddd);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#dddddd', GradientType=0);
+}
+@media only screen and (max-width: 479px) {
+  .step input[type="submit"],
+  .step input[type="button"],
+  .step .general-button,
+  .step a.general-button {
+    width: 99%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+.step input[type="submit"].deemphasize,
+.step input[type="button"].deemphasize,
+.step .general-button.deemphasize,
+.step a.general-button.deemphasize {
+  height: 24px;
+  padding: 0 8px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.step input[type="submit"].emphasize,
+.step input[type="button"].emphasize,
+.step .general-button.emphasize,
+.step a.general-button.emphasize {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  min-width: 100px;
+  margin: 0px;
+  padding: 8px 12px;
+  border: 1px solid #5c982c;
+  height: auto;
+  background: #f5f5f5;
+  float: none;
+  background-color: #69ad31;
+  background-image: -moz-linear-gradient(top, #6fb536, #5fa229);
+  background-image: -ms-linear-gradient(top, #6fb536, #5fa229);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6fb536), to(#5fa229));
+  background-image: -webkit-linear-gradient(top, #6fb536, #5fa229);
+  background-image: -o-linear-gradient(top, #6fb536, #5fa229);
+  background-image: linear-gradient(top, #6fb536, #5fa229);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6fb536', endColorstr='#5fa229', GradientType=0);
+  color: #747474;
+  line-height: 18px;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  text-justify: auto;
+  text-outline: none;
+  text-overflow: clip;
+  text-shadow: none;
+  text-transform: none;
+  text-wrap: normal;
+  color: #ffffff;
+  text-align: center;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 0px #000000;
+  -moz-box-shadow: 0px 0px 0px #000000;
+  box-shadow: 0px 0px 0px #000000;
+  -webkit-transition: all 0.2s ease 0;
+  -moz-transition: all 0.2s ease 0;
+  -ms-transition: all 0.2s ease 0;
+  -o-transition: all 0.2s ease 0;
+  transition: all 0.2s ease 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.step input[type="submit"].emphasize:hover,
+.step input[type="button"].emphasize:hover,
+.step .general-button.emphasize:hover,
+.step a.general-button.emphasize:hover {
+  border: 1px solid #4c881d;
+  color: #ffffff;
+  background-color: #569720;
+  background-image: -moz-linear-gradient(top, #60a526, #478316);
+  background-image: -ms-linear-gradient(top, #60a526, #478316);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#60a526), to(#478316));
+  background-image: -webkit-linear-gradient(top, #60a526, #478316);
+  background-image: -o-linear-gradient(top, #60a526, #478316);
+  background-image: linear-gradient(top, #60a526, #478316);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#60a526', endColorstr='#478316', GradientType=0);
+}
+@media only screen and (max-width: 479px) {
+  .step input[type="submit"].emphasize,
+  .step input[type="button"].emphasize,
+  .step .general-button.emphasize,
+  .step a.general-button.emphasize {
+    width: 99%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+.step input[type="submit"].super-emphasize,
+.step input[type="button"].super-emphasize,
+.step .general-button.super-emphasize,
+.step a.general-button.super-emphasize {
+  padding: 15px 8px 30px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 0px 1px 2px #2e7044;
+}
+.step a,
+.step a:link,
+.step a:hover,
+.step a:active,
+.step a:visited {
+  color: #747474;
+  line-height: 18px;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  text-justify: auto;
+  text-outline: none;
+  text-overflow: clip;
+  text-shadow: none;
+  text-transform: none;
+  text-wrap: normal;
+  font-size: 14px;
+  font-weight: normal;
+  color: #4a8db8;
+}
+.logo-bar {
+  position: fixed;
+  bottom: 0px;
+  background-color: whiteSmoke;
+  border-bottom: 8px solid #2e7044;
+  border-top: 1px solid #B3B3B3;
+  height: 50px;
+  width: 100%;
+  z-index: 100;
+}
+.logo-bar img {
+  margin: 10px 0px 0px 10px;
+}
+/* Examples beyond here */
+.ex-standout {
+  border: 2px solid #2e7044;
+  padding: 8px;
+  margin-bottom: 4px;
+  width: 150px;
+  font-size: 11px;
+}
+.ex-standout-wider {
+  border: 2px solid #2e7044;
+  padding: 8px;
+  margin-bottom: 4px;
+  width: 300px;
+  font-size: 11px;
+}
+.ex-new {
+  background-color: #ebebeb;
+}
+.ex-new .ex-standout {
+  width: 50px;
+}
